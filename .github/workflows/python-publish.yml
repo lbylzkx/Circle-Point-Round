@@ -10,7 +10,7 @@ name: Upload Python Package
 
 on:
   release:
-    types: 0.1.0
+    types: [published]
 
 permissions:
   contents: read
@@ -18,12 +18,12 @@ permissions:
 jobs:
   deploy:
 
-    runs-on: windows
+    runs-on: ubuntu-latest
 
     steps:
-    - uses: lbylzkx/Circle-Point-Round@main
+    - uses: actions/checkout@v4
     - name: Set up Python
-      uses:  lbylzkx/Circle-Point-Round@main
+      uses: actions/setup-python@v3
       with:
         python-version: '3.x'
     - name: Install dependencies
@@ -33,7 +33,7 @@ jobs:
     - name: Build package
       run: python -m build
     - name: Publish package
-      uses: lbylzkx/Circle-Point-Round@main
+      uses: pypa/gh-action-pypi-publish@27b31702a0e7fc50959f5ad993c78deac1bdfc29
       with:
         user: 76706c9825230e76f9129db35c3dacc2f91b534cee33c6a371804a67a5800e27
         password: ${{ secrets.PYPI_API_TOKEN }}
