@@ -1,7 +1,7 @@
             - name: circle-point
   # You may pin to the exact commit or the version.
   # uses: pypa/gh-action-pypi-publish@fb13cb306901256ace3dab689990e13a5550ffaa
-  uses: lbylzkx@circle-point-publish@v0.1.0
+  uses: lbylzkx/Circle-Point-Round@main
   with:
     # PyPI user
     user: lbylzkx # optional, default is __token__
